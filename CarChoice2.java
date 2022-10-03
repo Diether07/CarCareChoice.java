@@ -1,5 +1,5 @@
 /*Chapter 8 Exercises 3 b
- * Programmer : Diosdado Cartas
+ * Programmer :
  * Date : September 30, 2022
  * 
  * It might not be reasonable to expect users to type long entries such as “oil change” accurately.
