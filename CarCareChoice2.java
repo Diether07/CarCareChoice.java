@@ -1,20 +1,20 @@
-/*Chapter 8 Exercises 3 a
- *Programmer : Diosdado Cartas 
- *Date : September 20, 2022
- *
- *Write an application for Cody’s Car Care Shop that shows a user a list of available services: 
- *oil change, tire rotation, battery check, or brake inspection. Allow the user to enter a string that corresponds
- *to one of the options, and display the option and its price as $25, $22, $15, or $5, accordingly.
- *Display an error message if the user enters an invalid item. Save the file as CarCareChoice.java.
+/*Chapter 8 Exercise 3b
+ * Programmer : Diosdado Cartas
+ * Date: October 3, 2022
  * 
+ * It might not be reasonable to expect users to type long entries such as “oil change” accurately. 
+ * Modify the CarCareChoice class so that as long as the user enters the first three characters of a service, 
+ * the choice is considered valid. Save the file as CarCareChoice2.java.
  * */
+
 import java.util.Scanner;
-public class CarCareChoice {
+
+public class CarCareChoice2 {
 	public static void main (String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		//List of available services
 		String[] services = {"Oil Change","Tire Rotation", "Battery Check","Break Inspection"};
-		//List of price
+		//List of prices
 		int[] price = {25,22,15,5};
 		boolean stop = false;
 		
@@ -28,9 +28,10 @@ public class CarCareChoice {
 		
 		//Display output
 		for(int i = 0; i < services.length; i++) {
-			if (userServices.equalsIgnoreCase(services[i])) {
+			//I use or userServices.equalsIgnoreCase(services.substring(0,3) -- first 3 letters
+			if (userServices.equalsIgnoreCase(services[i]) || userServices.equalsIgnoreCase(services[i].substring(0,3))) {
 				System.out.println("The would cost $" + price[i]);
-				// I used boolean to make the loop continue 
+				// I use boolean to make the loop continue 
 				stop = true;
 			}
 			//I tried to use else but the display error will print 4 times
@@ -40,8 +41,5 @@ public class CarCareChoice {
 		//So if the loop didn't find the stop it will go here 
 		if (!stop) 
 			System.out.println("We dont have that service or check your input ");
-		
-		
-		
 	}
 }
